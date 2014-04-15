@@ -35,6 +35,17 @@ public abstract class GameStateSingleton {
             winMsg = winner + " Won !!!";
         return winMsg;
     }
+    //To display next player on the message bar
+    public static String getNextPlayer(TicTacToeActivity ticTacToeActivity) {
+        String displayMsg;
+        String nextPlayer;
+        if(ticTacToeActivity.isNextState())
+            nextPlayer = "O";
+        else
+            nextPlayer = "X";
+        displayMsg = nextPlayer + "'s Turn";
+        return displayMsg;
+    }
     public static boolean isGameFinished() {
         if(turnCounter < 5)
             return false;
@@ -84,12 +95,12 @@ public abstract class GameStateSingleton {
             return true;
 
         for(int i=0;i<3;i++)
-                if (grid[i][0] == player && grid[i][1] == player && grid[i][2] == player)
-                    return true;
+            if (grid[i][0] == player && grid[i][1] == player && grid[i][2] == player)
+                return true;
 
         for(int i=0;i<3;i++)
-                if (grid[0][i] == player && grid[1][i] == player && grid[2][i] == player)
-                    return true;
+            if (grid[0][i] == player && grid[1][i] == player && grid[2][i] == player)
+                return true;
 
         return false;
     }
