@@ -14,21 +14,24 @@ import java.util.List;
 public class SecondActivity extends TicTacToeActivity{
 
     private List<TicTacToeButton> buttons;
-    private TextView winningMessage;
+    private TextView displayMessage;
     private Button resetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.initializeGame();
+
+        //for up button on action bar
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void initializeUIComponents() {
 
         setContentView(R.layout.secondactivity);
 
-        winningMessage = (TextView)findViewById(R.id.gameState);
-        winningMessage.setVisibility(View.INVISIBLE);
+        displayMessage = (TextView)findViewById(R.id.gameState);
+        displayMessage.setVisibility(View.INVISIBLE);
 
         buttons = new ArrayList<TicTacToeButton>(9);
         buttons.add(0, new TicTacToeButton(this, R.id.button1));
@@ -52,10 +55,16 @@ public class SecondActivity extends TicTacToeActivity{
 
     @Override
     protected void updateUIOnGameFinish(String message) {
-        winningMessage.setText(message);
-        winningMessage.setVisibility(View.VISIBLE);
+        displayMessage.setText(message);
+        displayMessage.setVisibility(View.VISIBLE);
         for (TicTacToeButton button : buttons)
             button.disable();
+    }
+
+    protected void displayMessage(String message) {
+        displayMessage.setText(message);
+        displayMessage.setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -67,7 +76,8 @@ public class SecondActivity extends TicTacToeActivity{
     }
 
     public void resetUIComponents() {
-        winningMessage.setVisibility(View.INVISIBLE);
+        displayMessage(GameStateSingleton.getNextPlayer(this));
+        //winningMessage.setVisibility(View.INVISIBLE);
         for(TicTacToeButton button : buttons)
             button.reset();
     }
