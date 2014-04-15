@@ -13,7 +13,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
      * Called when the activity is first created.
      */
 
-//    test commit by me
+//    test commit by me_1
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
