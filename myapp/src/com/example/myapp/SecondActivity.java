@@ -15,6 +15,7 @@ public class SecondActivity extends TicTacToeActivity{
 
     private List<TicTacToeButton> buttons;
     private TextView displayMessage;
+    private TextView displayScore;
     private Button resetButton;
 
     @Override
@@ -35,8 +36,11 @@ public class SecondActivity extends TicTacToeActivity{
     protected void initializeUIComponents() {
         setContentView(R.layout.secondactivity);
 
+        displayScore = (TextView) findViewById(R.id.gameScore);
+        displayScore.setVisibility(View.VISIBLE);
         displayMessage = (TextView)findViewById(R.id.gameState);
         displayMessage.setVisibility(View.INVISIBLE);
+
 
         buttons = new ArrayList<TicTacToeButton>(9);
         buttons.add(0, new TicTacToeButton(this, R.id.button1));
@@ -60,6 +64,8 @@ public class SecondActivity extends TicTacToeActivity{
 
     @Override
     protected void updateUIOnGameFinish(String message) {
+        displayScore.setText(GameStateSingleton.getGameScore());
+        displayScore.setVisibility(View.VISIBLE);
         displayMessage.setText(message);
         displayMessage.setVisibility(View.VISIBLE);
         for (TicTacToeButton button : buttons)
@@ -69,6 +75,12 @@ public class SecondActivity extends TicTacToeActivity{
     protected void displayMessage(String message) {
         displayMessage.setText(message);
         displayMessage.setVisibility(View.VISIBLE);
+    }
+
+
+    protected void displayScore(String message) {
+        displayScore.setText(message);
+        displayScore.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -81,6 +93,7 @@ public class SecondActivity extends TicTacToeActivity{
 
     protected void resetUIComponents() {
         displayMessage(getNextPlayerMessage());
+        displayScore(GameStateSingleton.getGameScore());
         for(TicTacToeButton button : buttons)
             button.reset();
     }

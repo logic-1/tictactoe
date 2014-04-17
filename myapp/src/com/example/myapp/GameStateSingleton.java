@@ -36,6 +36,16 @@ public abstract class GameStateSingleton {
         return winMsg;
     }
 
+    public static String getGameScore() {
+        String gameScore;
+
+        gameScore = "X : "+TicTacToeActivity.xScore.toString()+" | ";
+        gameScore = gameScore + ("O : "+TicTacToeActivity.oScore.toString()+" | ");
+        gameScore = gameScore + ("Draw : "+TicTacToeActivity.drawScore.toString());
+
+        return gameScore;
+    }
+
     public static boolean isGameFinished() {
         if(turnCounter < 5)
             return false;
@@ -44,16 +54,19 @@ public abstract class GameStateSingleton {
 
         if(checkIfPlayerWon(TicTacToeActivity.STATE_X) ){
             winner = TicTacToeActivity.STATE_X;
+            TicTacToeActivity.xScore++;
             return true;
         }
 
         if(checkIfPlayerWon(TicTacToeActivity.STATE_O)){
             winner = TicTacToeActivity.STATE_O;
+            TicTacToeActivity.oScore++;
             return true;
         }
 
         if(turnCounter == 9){
             winner = null;
+            TicTacToeActivity.drawScore++;
             return true;
         }
 

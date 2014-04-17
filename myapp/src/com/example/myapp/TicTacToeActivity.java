@@ -8,10 +8,15 @@ public abstract class TicTacToeActivity extends Activity{
 
 
 
+    public static Integer xScore = 0;
+    public static Integer oScore = 0;
+    public static Integer drawScore = 0;
     private static boolean nextState;
     private static boolean startState;
     public static final String STATE_X = "X";
     public static final String STATE_O = "O";
+
+
 
     public static boolean isNextState() {
         return nextState;
@@ -46,6 +51,7 @@ public abstract class TicTacToeActivity extends Activity{
         this.initializeUIComponents();
         GameStateSingleton.initializeGameState();
         this.displayMessage(getNextPlayerMessage());
+        this.displayScore(GameStateSingleton.getGameScore());
     }
 
     public void resetGame(){
@@ -58,11 +64,36 @@ public abstract class TicTacToeActivity extends Activity{
         GameStateSingleton.updateGameState(this.getGameStateFromButtonList());
         if(GameStateSingleton.isGameFinished()){
             this.updateUIOnGameFinish(GameStateSingleton.getWinningMessage());
+
         }
         else{
             this.displayMessage(getNextPlayerMessage());
         }
 
+    }
+
+    public static int getoScore() {
+        return oScore;
+    }
+
+    public static int getxScore() {
+        return xScore;
+    }
+
+    public static void setxScore(int xScore) {
+        TicTacToeActivity.xScore = xScore;
+    }
+
+    public static void setoScore(int oScore) {
+        TicTacToeActivity.oScore = oScore;
+    }
+
+    public static int getDrawScore() {
+        return drawScore;
+    }
+
+    public static void setDrawScore(int drawScore) {
+        TicTacToeActivity.drawScore = drawScore;
     }
 
     protected abstract String getGameStateFromButtonList();
@@ -72,5 +103,6 @@ public abstract class TicTacToeActivity extends Activity{
     protected abstract void updateUIOnGameFinish(String winningMessage);
 
     protected abstract void displayMessage(String winningMessage);
+    protected abstract void displayScore(String winningMessage);
 
 }
