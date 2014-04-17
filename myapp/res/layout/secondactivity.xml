@@ -10,6 +10,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/gameState"
             android:layout_row="0"
@@ -21,18 +22,12 @@
             android:textColor="@android:color/black"
             android:capitalize="words"/>
 
-    <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_gravity="fill_horizontal|center_vertical">
-
         <GridLayout
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_row="4"
-                android:layout_column="6"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_row="1"
+                android:layout_column="0"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="6dp"
                 android:background="@android:color/background_light">
@@ -112,11 +107,10 @@
 
         </GridLayout>
 
-    </FrameLayout>
-
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Reset"
             android:id="@+id/resetbutton"
             android:layout_row="2"

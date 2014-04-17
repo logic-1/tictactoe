@@ -21,14 +21,16 @@ public abstract class TicTacToeActivity extends Activity{
         setNextState(!nextState);
         return nextState ?  STATE_X : STATE_O;
     }
-    public String getNextPlayer() {
+    protected String getNextPlayerMessage() {
+        String message = nextState ?  STATE_O : STATE_X;
+        return message + "'s Turn";
+    }
 
-        return nextState ?  STATE_X : STATE_O;
+    public String getNextPlayer(){
+        return nextState ? STATE_X : STATE_O;
     }
     private void initializeNextState(){
-        //nextState = true;
-        if (!startState) startState = true;
-        else startState = false;
+        startState = !startState;
         nextState = startState;
 
     }
@@ -43,7 +45,7 @@ public abstract class TicTacToeActivity extends Activity{
         initializeNextState();
         this.initializeUIComponents();
         GameStateSingleton.initializeGameState();
-        this.displayMessage(GameStateSingleton.getNextPlayer(this));
+        this.displayMessage(getNextPlayerMessage());
     }
 
     public void resetGame(){
@@ -58,7 +60,7 @@ public abstract class TicTacToeActivity extends Activity{
             this.updateUIOnGameFinish(GameStateSingleton.getWinningMessage());
         }
         else{
-            this.displayMessage(GameStateSingleton.getNextPlayer(this));
+            this.displayMessage(getNextPlayerMessage());
         }
 
     }

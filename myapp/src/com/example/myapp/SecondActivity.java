@@ -26,8 +26,13 @@ public class SecondActivity extends TicTacToeActivity{
         getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void initializeUIComponents() {
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
 
+    }
+
+    protected void initializeUIComponents() {
         setContentView(R.layout.secondactivity);
 
         displayMessage = (TextView)findViewById(R.id.gameState);
@@ -64,7 +69,6 @@ public class SecondActivity extends TicTacToeActivity{
     protected void displayMessage(String message) {
         displayMessage.setText(message);
         displayMessage.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -75,9 +79,8 @@ public class SecondActivity extends TicTacToeActivity{
         return stateString;
     }
 
-    public void resetUIComponents() {
-        displayMessage(GameStateSingleton.getNextPlayer(this));
-        //winningMessage.setVisibility(View.INVISIBLE);
+    protected void resetUIComponents() {
+        displayMessage(getNextPlayerMessage());
         for(TicTacToeButton button : buttons)
             button.reset();
     }
