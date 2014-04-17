@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@android:color/holo_blue_light"
+            android:rowCount="8"
+            android:columnCount="1">
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_light"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:rowCount="1"
+                android:columnCount="6">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="150dp"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/gameScore"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:layout_gravity="end"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:capitalize="words"/>
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="200dp"
+            android:layout_weight="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/gameState"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:capitalize="words"/>
+        </GridLayout>
+
+        <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="6dp"
+                android:background="@android:color/background_light">
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button1"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_gravity="left|center_vertical"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button2"
+                    android:layout_row="0"
+                    android:layout_column="1"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button3"
+                    android:layout_row="0"
+                    android:layout_column="2"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button4"
+                    android:layout_row="1"
+                    android:layout_column="0"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button5"
+                    android:layout_row="1"
+                    android:layout_column="1"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button6"
+                    android:layout_row="1"
+                    android:layout_column="2"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button7"
+                    android:layout_row="2"
+                    android:layout_column="0"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button8"
+                    android:layout_row="2"
+                    android:layout_column="1"/>
+
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="@android:dimen/notification_large_icon_height"
+                    android:layout_height="@android:dimen/notification_large_icon_width"
+                    android:id="@+id/button9"
+                    android:layout_row="2"
+                    android:layout_column="2"/>
+
+        </GridLayout>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reset"
+            android:id="@+id/resetbutton"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            />
+
+</GridLayout>
